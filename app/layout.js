@@ -1,14 +1,19 @@
+import localFont from '@next/font/local';
 import './globals.css'
+
+const myFont = localFont({
+  src: './font/SF-Compact.ttf',
+  display: 'swap'
+});
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      {/*
-        <head /> will contain the components returned by the nearest parent
-        head.js. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
+    <html lang="it" className={myFont.className}>
       <head />
-      <body>{children}</body>
+      
+      <body>
+        {children}
+      </body>
     </html>
   )
 }
