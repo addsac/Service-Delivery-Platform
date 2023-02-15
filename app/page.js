@@ -13,12 +13,14 @@ export default function Home() {
 
   return (
     <>
-      <Sidebar />
+      { security && <Sidebar /> }
       <main className='pl-[300px]'>
         <AnimatePresence>
-          { !security && <PasswordModal password={store.password} /> }
-          { security && <Content /> }
+          { !security && 
+            <PasswordModal password={store.password} />
+          }
         </AnimatePresence>
+        { security && <Content /> }
       </main> 
     </>
   )
