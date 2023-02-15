@@ -1,4 +1,7 @@
-import localFont from '@next/font/local';
+'use client'
+
+import localFont from '@next/font/local'
+import { RecoilRoot } from 'recoil'
 import './globals.css'
 
 const myFont = localFont({
@@ -12,7 +15,9 @@ export default function RootLayout({ children }) {
       <head />
       
       <body>
-        {children}
+        <RecoilRoot>
+          {children}
+        </RecoilRoot>
       </body>
     </html>
   )

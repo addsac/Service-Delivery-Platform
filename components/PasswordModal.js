@@ -1,8 +1,38 @@
 import Button from './Button'
+import { useRef, useState } from 'react'
+import { motion } from 'framer-motion'
+import { securityState } from '@/store/atom/securityAtom'
+import { useSetRecoilState } from 'recoil'
 
-export default function PasswordModal({ password = '' }) {
+export default function PasswordModal() {
+    const [passwordWritter, setPasswordWritter] = useState('')
+    const setSecurity = useSetRecoilState(securityState)
+
+    const input = useRef(null)
+
+    const onChangeInputPassword = ({target: {value}}) => {
+        setPasswordWritter(value);
+    }
+
+    const checkPassword = (event) => {
+        event.preventDefault()
+
+        if(process.env.NEXT_PUBLIC_PASSWORD == passwordWritter){
+            setSecurity(true)
+        }
+        else{
+            alert('La password è sbagliata, riprova.')
+            input.current.focus()
+        }
+    }
+
     return (
-        <div className='fixed w-screen h-screen inset-0 z-50 flex-center'>
+        <motion.div 
+            initial={{opacity: 0}}
+            animate={{opacity: 1}}
+            exit={{scale: 0.9, opacity: 0}}
+            className='fixed w-screen h-screen inset-0 z-50 flex-center'
+        >
             <div className='w-full max-w-[417px] mx-3 h-auto flex flex-col gap-y-16 text-center'>
                 <div className='flex flex-col items-center gap-y-10'>
                     {/* Icon */}
@@ -26,8 +56,15 @@ export default function PasswordModal({ password = '' }) {
                     </div>
                 </div>
 
-                <div className='flex flex-col gap-y-8'>
-                    <input type='text' className='input-1' autoFocus />
+                <form submit={checkPassword} className='flex flex-col gap-y-8'>
+                    <input 
+                        ref={input}
+                        type='password'
+                        value={passwordWritter} 
+                        onChange={onChangeInputPassword} 
+                        className='input-1' 
+                        autoFocus
+                    />
 
                     <div className='flex flex-col gap-y-4'>
                         <Button
@@ -35,6 +72,7 @@ export default function PasswordModal({ password = '' }) {
                             type="primary" 
                             size="lg"
                             icon="arrow-right"
+                            handleClick={checkPassword}
                         />
 
                         <div className='flex-center'>
@@ -45,7 +83,7 @@ export default function PasswordModal({ password = '' }) {
                             />
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
 
             <div className="absolute bottom-8 mx-auto">
@@ -53,6 +91,6 @@ export default function PasswordModal({ password = '' }) {
                     © 2023 Pegaso Digital Studio
                 </p>
             </div>
-        </div>
+        </motion.div>
     )
 }

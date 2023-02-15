@@ -1,26 +1,21 @@
 'use client'
 
-import PasswordModal from '@/components/PasswordModal';
+import PasswordModal from '@/components/PasswordModal'
+import { securityState } from '@/store/atom/securityAtom'
 import store from '@/store/store' 
-import { useState } from 'react';
+import { AnimatePresence } from 'framer-motion'
+import { useRecoilValue } from 'recoil'
 
 export default function Home() {
-  const [checkSecurity, setCheckSecurity] = useState(false)
-
-  const checkPassword = (string) => {
-    if(string == store.password){
-      setCheckSecurity(false)
-    }
-    else{
-      alert(1)
-    }
-  }
+  const security = useRecoilValue(securityState)
 
   return (
     <main>
-      { !checkSecurity && (
-        <PasswordModal password={store.password} />  
-      )}
+      <AnimatePresence>
+        { !security && (
+          <PasswordModal password={store.password} />  
+        )}
+      </AnimatePresence>
     </main>
   )
 }
