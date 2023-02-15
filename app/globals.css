@@ -45,7 +45,7 @@ input{
     @apply !bg-slate-900 !text-white;
 }
 .button-sidebar{
-    @apply text-slate-900/50 hover:bg-slate-100 rounded-base flex justify-between items-center px-[14px] py-2;
+    @apply text-slate-900/50 hover:bg-gray-100 rounded-base flex justify-between items-center px-[14px] py-2;
 }
 
 /* Shadow */

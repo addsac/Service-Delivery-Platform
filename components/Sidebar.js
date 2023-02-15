@@ -1,4 +1,15 @@
+import { menuState } from "@/store/atom/sidebarAtom"
+import { useRecoilValue, useSetRecoilState } from 'recoil'
+import KeyTag from './ui/KeyTag'
+import IconCartel from '../public/icon/icon-cartel.svg'
+import IconFolder from '../public/icon/icon-folder.svg'
+import IconCalendar from '../public/icon/icon-calendar.svg'
+import IconPhone from '../public/icon/icon-phone.svg'
+
 export default function Sidebar() {
+  const setMenu = useSetRecoilState(menuState)
+  const menu = useRecoilValue(menuState)
+
   return (
     <div className='w-[300px] fixed top-0 bottom-0 bg-white shadow-sidebar flex flex-col justify-between pt-10 pb-6'>
         {/* top part */}
@@ -13,36 +24,69 @@ export default function Sidebar() {
 
           {/* menu */}
           <div className='flex flex-col gap-y-4 mx-6'>
-            <p className='text-sm uppercase text-slate-500 tracking-[1px]'> menù </p>
+            {/* <p className='text-sm uppercase text-slate-500 tracking-[1px]'> menù </p> */}
 
             <div className='flex flex-col gap-y-[6px]'>
-              <button className='button-sidebar button-sidebar-active'>
+              <button
+                className={`button-sidebar ${menu == 1 ? 'button-sidebar-active' : ''}`}
+                onClick={() => setMenu(1)}
+              >
                 <div className='flex items-center gap-x-[6px] py-[2px]'>
-                  <img src='icon/icon-cartel.svg' alt='' className='w-5 h-5' />
-                  <p className="text-base font-medium text-white"> Time Planner </p>
+                  <span className='w-5 h-5'>
+                    <IconCartel />
+                  </span>
+                  <p className="text-base font-medium"> Time Planner </p>
                 </div>
-                <p className="text-sm text-white/50 font-medium"> ⌘1 </p>
+                <KeyTag
+                  text="⌘1" 
+                  color={`${menu == 1 ? 'white' : 'slate-900'}`} 
+                />
               </button>
-              <button className='button-sidebar'>
+              <button
+                className={`button-sidebar ${menu == 2 ? 'button-sidebar-active' : ''}`}
+                onClick={() => setMenu(2)}
+              >
                 <div className='flex items-center gap-x-[6px] py-[2px]'>
-                  <img src='icon/icon-folder.svg' alt='' className='w-5 h-5 opacity-50' />
+                  <span className='w-5 h-5'>
+                    <IconFolder />
+                  </span>
                   <p className="text-base font-medium"> Assets </p>
+                  <p className="text-base text-slate-500/50"> (12) </p>
                 </div>
-                <p className="text-sm font-medium"> ⌘2 </p>
+                <KeyTag
+                  text="⌘2" 
+                  color={`${menu == 2 ? 'white' : 'slate-900'}`} 
+                />
               </button>
-              <button className='button-sidebar'>
+              <button
+                className={`button-sidebar ${menu == 3 ? 'button-sidebar-active' : ''}`}
+                onClick={() => setMenu(3)}
+              >
                 <div className='flex items-center gap-x-[6px] py-[2px]'>
-                  <img src='icon/icon-calendar.svg' alt='' className='w-5 h-5 opacity-50' />
+                  <span className='w-5 h-5'>
+                    <IconCalendar />
+                  </span>
                   <p className="text-base font-medium"> Appuntamenti </p>
                 </div>
-                <p className="text-sm font-medium"> ⌘3 </p>
+                <KeyTag
+                  text="⌘3" 
+                  color={`${menu == 3 ? 'white' : 'slate-900'}`} 
+                />
               </button>
-              <button className='button-sidebar'>
+              <button
+                className={`button-sidebar ${menu == 4 ? 'button-sidebar-active' : ''}`}
+                onClick={() => setMenu(4)}
+              >
                 <div className='flex items-center gap-x-[6px] py-[2px]'>
-                  <img src='icon/icon-phone.svg' alt='' className='w-5 h-5 opacity-50' />
+                  <span className='w-5 h-5'>
+                    <IconPhone />
+                  </span>
                   <p className="text-base font-medium"> Contatti </p>
                 </div>
-                <p className="text-sm font-medium"> ⌘4 </p>
+                <KeyTag
+                  text="⌘4" 
+                  color={`${menu == 4 ? 'white' : 'slate-900'}`} 
+                />
               </button>
             </div>
           </div>

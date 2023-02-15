@@ -2,6 +2,7 @@
 
 import PasswordModal from '@/components/PasswordModal'
 import Sidebar from '@/components/Sidebar'
+import Content from '@/components/Content'
 import { securityState } from '@/store/atom/securityAtom'
 import store from '@/store/store' 
 import { AnimatePresence } from 'framer-motion'
@@ -13,11 +14,10 @@ export default function Home() {
   return (
     <>
       <Sidebar />
-      <main>
+      <main className='pl-[300px]'>
         <AnimatePresence>
-          { !security && (
-            <PasswordModal password={store.password} />  
-          )}
+          { !security && <PasswordModal password={store.password} /> }
+          { security && <Content /> }
         </AnimatePresence>
       </main> 
     </>
