@@ -1,6 +1,7 @@
 'use client'
 
 import PasswordModal from '@/components/PasswordModal'
+import Sidebar from '@/components/Sidebar'
 import { securityState } from '@/store/atom/securityAtom'
 import store from '@/store/store' 
 import { AnimatePresence } from 'framer-motion'
@@ -10,12 +11,15 @@ export default function Home() {
   const security = useRecoilValue(securityState)
 
   return (
-    <main>
-      <AnimatePresence>
-        { !security && (
-          <PasswordModal password={store.password} />  
-        )}
-      </AnimatePresence>
-    </main>
+    <>
+      <Sidebar />
+      <main>
+        <AnimatePresence>
+          { !security && (
+            <PasswordModal password={store.password} />  
+          )}
+        </AnimatePresence>
+      </main> 
+    </>
   )
 }

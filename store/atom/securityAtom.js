@@ -2,5 +2,5 @@ import { atom } from 'recoil'
 
 export const securityState = atom({
     key: 'securityState',
-    default: false,
+    default: true, // true = password check done right, false = wrong password
 })

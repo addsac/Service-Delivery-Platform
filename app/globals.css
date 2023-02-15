@@ -41,8 +41,23 @@ input{
     outline: 4px solid rgba(30,41,59,0.1);
 }
 
+.button-sidebar-active{
+    @apply !bg-slate-900 !text-white;
+}
+.button-sidebar{
+    @apply text-slate-900/50 hover:bg-slate-100 rounded-base flex justify-between items-center px-[14px] py-2;
+}
+
 /* Shadow */
 .shadow-1{
     border: 1px solid rgba(15, 23, 42, 0.07);
     box-shadow: 0px 1px 3px rgba(15, 23, 42, 0.04), inset 0px -1px 0px rgba(0, 0, 0, 0.1);
+}
+.shadow-sidebar{
+    box-shadow: 0px 1px 3px rgba(15,23,42,0.1);
+}
+
+/* root elements */
+body{
+    @apply bg-slate-50;
 }

@@ -1,9 +1,13 @@
 'use client'
 
 export default function Button({ type, size, icon, text = '', handleClick }) {
+  const nullFunction = (event) => {
+    event.preventDefault()
+  }
+
   return (
     <button 
-      onClick={handleClick}
+      onClick={handleClick ? handleClick : nullFunction}
       className={`
           btn-${type}
           ${size == 'sm' ? 'btn-size-sm' : size == 'lg' ? 'btn-size-lg' : ''}

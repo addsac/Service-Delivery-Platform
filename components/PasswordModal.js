@@ -32,7 +32,7 @@ export default function PasswordModal() {
             animate={{opacity: 1}}
             exit={{scale: 0.9, opacity: 0}}
             transition={defaultTransition}
-            className='fixed w-screen h-screen inset-0 z-50 flex-center'
+            className='fixed w-screen h-screen inset-0 z-50 flex-center bg-white'
         >
             <div className='w-full max-w-[417px] mx-3 h-auto flex flex-col gap-y-16 text-center'>
                 <div className='flex flex-col items-center gap-y-10'>
