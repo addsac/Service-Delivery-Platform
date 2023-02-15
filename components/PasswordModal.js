@@ -1,4 +1,4 @@
-import Button from './Button'
+import Button from '@/components/ui/Button'
 import { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { securityState } from '@/store/atom/securityAtom'
