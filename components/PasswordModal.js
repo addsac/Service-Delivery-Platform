@@ -31,6 +31,7 @@ export default function PasswordModal() {
             initial={{opacity: 0}}
             animate={{opacity: 1}}
             exit={{scale: 0.9, opacity: 0}}
+            transition={defaultTransition}
             className='fixed w-screen h-screen inset-0 z-50 flex-center'
         >
             <div className='w-full max-w-[417px] mx-3 h-auto flex flex-col gap-y-16 text-center'>
@@ -63,6 +64,7 @@ export default function PasswordModal() {
                         value={passwordWritter} 
                         onChange={onChangeInputPassword} 
                         className='input-1' 
+                        autoComplete='new-password'
                         autoFocus
                     />
 
@@ -94,3 +96,10 @@ export default function PasswordModal() {
         </motion.div>
     )
 }
+
+let defaultTransition = {
+  duration: 0.3,
+  delay: 0.05,
+  type: "tween",
+  ease: "circInOut",
+};
