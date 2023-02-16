@@ -3,13 +3,13 @@ import Assets from '@/components/pages/Assets'
 import Contact from '@/components/pages/Contact'
 import TimePlanner from '@/components/pages/TimePlanner'
 import { menuState } from '@/store/atom/sidebarAtom'
-import { motion, AnimatePresence } from 'framer-motion'
+import { AnimatePresence } from 'framer-motion'
 import { useRecoilValue } from 'recoil'
 
 export default function Content() {
     const menu = useRecoilValue(menuState)
   return (
-    <div className='min-h-screen w-full flex-center'>
+    <div className='min-h-screen w-full pt-[105px]'>
       <AnimatePresence mode='wait' initial={false}>
         { menu == 1 && <TimePlanner key="content-1" transition={transition} /> }
         { menu == 2 && <Assets key="content-2" transition={transition} /> }

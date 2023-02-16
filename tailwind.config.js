@@ -17,39 +17,39 @@ module.exports = {
     fontSize: {
       'sm': ['12px', {
         lineHeight: '120%',
-        letterSpacing: '-0.01em',
+        letterSpacing: '-0.3px',
       }],
       'base': ['15px', {
         lineHeight: '120%',
-        letterSpacing: '-0.01em',
+        letterSpacing: '-0.3px',
       }],
       'md': ['17px', {
         lineHeight: '120%',
-        letterSpacing: '-0.01em',
+        letterSpacing: '-0.3px',
       }],
       'lg': ['19px', {
         lineHeight: '120%',
-        letterSpacing: '-0.01em',
+        letterSpacing: '-0.3px',
       }],
       'xl': ['21px', {
         lineHeight: '120%',
-        letterSpacing: '-0.01em',
+        letterSpacing: '-0.3px',
       }],
       'xxl': ['24px', {
         lineHeight: '120%',
-        letterSpacing: '-0.01em',
+        letterSpacing: '-0.3px',
       }],
       'xxxl': ['27px', {
         lineHeight: '120%',
-        letterSpacing: '-0.01em',
+        letterSpacing: '-0.3px',
       }],
       'xxxxl': ['35px', {
         lineHeight: '120%',
-        letterSpacing: '-0.01em',
+        letterSpacing: '-0.3px',
       }],
       'xxxxxl': ['44px', {
         lineHeight: '120%',
-        letterSpacing: '-0.01em',
+        letterSpacing: '-0.3px',
       }],
     },
     extend: {},

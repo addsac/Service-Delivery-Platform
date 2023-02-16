@@ -12,10 +12,10 @@ export default function NotificationContainer() {
         <div className="p-3 text-base text-slate-900 font-medium"> Notifiche </div>
         {[1, 2, 3].map((item, index) => (
             <div className='px-3 py-2 [border-top:_1px_solid_rgba(15,23,42,0.07)] flex flex-col hover:bg-slate-50 gap-y-2'>
-                <div className='flex items-center justify-between text-sm text-slate-900'>
+                <div className='flex items-center justify-between text-[14px] text-slate-900'>
                     <div className='flex items-center gap-x-2'>
                         <div className='h-[6px] w-[6px] rounded-[50%] bg-slate-900'></div>
-                        <p> Nuovo Link!</p>
+                        <p className='font-medium'> Nuovo Link!</p>
                     </div>
                     <p> 12/04/2023 </p>
                 </div>
