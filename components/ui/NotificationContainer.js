@@ -6,7 +6,6 @@ export default function NotificationContainer() {
         initial={{ opacity: 1, y: '-8px'}}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: '-8px' }}
-        transition={transition}
         className='mt-3 absolute bottom-100 left-100 bg-white shadow-1 w-[240px] min-h-[260px] max-h-[260px] overflow-y-scroll rounded-base flex flex-col'
     >
         <div className="p-3 text-base text-slate-900 font-medium"> Notifiche </div>
@@ -26,9 +25,4 @@ export default function NotificationContainer() {
         ))}
     </motion.div>
   )
-}
-
-const transition = {
-    x: { duration: 0.1 },
-    default: { ease: "circOut" }
 }
