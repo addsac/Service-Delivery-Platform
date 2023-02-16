@@ -2,6 +2,7 @@
 
 import PasswordModal from '@/components/PasswordModal'
 import Sidebar from '@/components/Sidebar'
+import Topbar from '@/components/Topbar'
 import Content from '@/components/Content'
 import { securityState } from '@/store/atom/securityAtom'
 import store from '@/store/store' 
@@ -20,6 +21,7 @@ export default function Home() {
             <PasswordModal password={store.password} />
           }
         </AnimatePresence>
+        { security && <Topbar /> }
         { security && <Content /> }
       </main> 
     </>

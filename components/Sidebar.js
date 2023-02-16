@@ -16,7 +16,7 @@ export default function Sidebar() {
   const [hovered, setHovered] = useState(buttonArray[0])
 
   return (
-    <div className='w-[300px] fixed top-0 bottom-0 bg-white shadow-sidebar flex flex-col justify-between pt-10 pb-6'>
+    <div className='w-[300px] fixed top-0 bottom-0 bg-white shadow-sidebar flex flex-col justify-between pt-10 pb-6 z-10'>
         {/* top part */}
         <div className='relative flex flex-col gap-y-16'>
           {/* logo */}
