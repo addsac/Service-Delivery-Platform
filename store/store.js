@@ -57,26 +57,52 @@ const store = {
                 ],
             }
         ],
-        assets: {
-            link: [
-                {
-                    name: '',
-                    url: ''
-                }
-            ],
-            photo: [
-                {
-                    name: '',
-                    url: ''
-                }
-            ],
-            folders: [
-                {
-                    name: '',
-                    assets: ''
-                }
-            ]
-        },
+        assets: [
+            {
+                type: 'file',
+                name: 'Nome del file',
+                url: 'https://leonardocitton.com'
+            },
+            {
+                type: 'file',
+                name: 'Nome del file',
+                url: 'https://leonardocitton.com'
+            },
+            {
+                type: 'link',
+                name: 'Nome del link',
+                url: 'https://leonardocitton.com'
+            },
+            {
+                type: 'folder',
+                name: 'Nome della cartella',
+                url: '',
+                assets: [
+                    {
+                        type: 'file',
+                        name: 'Nome del file',
+                        url: 'https://leonardocitton.com'
+                    },
+                    {
+                        type: 'file',
+                        name: 'Nome del file',
+                        url: 'https://leonardocitton.com'
+                    },
+                ]
+            },
+            {
+                type: 'folder',
+                name: 'Nome della cartella',
+                url: '',
+                assets: [
+                    {
+                        type: 'link',
+                        name: 'Nome del link',
+                        url: 'https://leonardocitton.com'
+                    },
+                ]
+            },
+        ],
         appointments: [
             {
                 title: '',

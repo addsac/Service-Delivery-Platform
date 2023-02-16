@@ -26,33 +26,38 @@ export default function TimePlanner({ transition }) {
           </div>
 
           {/* Content */}
-          { timePlannerData.map((plan, index) => (
-            <div className='flex gap-x-10'>
-              {/* Square  */}
-              <div className='relative flex h-20 w-20'>
-                { index == 0 && <span class="animate-ping absolute inline-flex h-full w-full rounded-md bg-slate-400 z-[-1]"></span> }
-                <div className='h-20 w-20 flex-center rounded-md bg-white shadow-1'>
-                  <IconLayer />
-                </div>
-              </div>
-
-              <div>
-                <div className='h-[30px] w-full'></div>
-                <div className='flex flex-col gap-y-10'>
-                  <div className='flex flex-col gap-y-6'>
-                    <p className="text-md text-slate-900 font-medium"> { plan.title } </p>
-                    <p className="text-base text-slate-500 leading-[170%]"> { plan.description } </p>
+          <div className='relative flex flex-col gap-y-16'>
+            {/* Row decoration */}
+            <div className='ml-10 h-full w-px absolute border-l-2 border-dashed border-slate-900/5'></div>
+          
+            { timePlannerData.map((plan, index) => (
+              <div className='flex gap-x-10'>
+                {/* Square  */}
+                <div className='relative flex h-20 w-20'>
+                  { index == 0 && <span class="animate-ping absolute inline-flex h-full w-full rounded-md bg-slate-400 z-[-1]"></span> }
+                  <div className='h-20 w-20 flex-center rounded-md bg-white shadow-1'>
+                    <IconLayer />
                   </div>
-                  { plan.data.map((item) => (
-                    <div className='flex flex-col gap-y-4'>
-                      <p className="text-base text-slate-900 font-medium"> { item.title } </p>
-                      <p className="text-base text-slate-500 leading-[170%]"> { item.body } </p>
+                </div>
+
+                <div>
+                  <div className='h-[30px] w-full'></div>
+                  <div className='flex flex-col gap-y-10'>
+                    <div className='flex flex-col gap-y-6'>
+                      <p className="text-md text-slate-900 font-medium"> { plan.title } </p>
+                      <p className="text-base text-slate-500 leading-[170%]"> { plan.description } </p>
                     </div>
-                  )) }
+                    { plan.data.map((item) => (
+                      <div className='flex flex-col gap-y-4'>
+                        <p className="text-base text-slate-900 font-medium"> { item.title } </p>
+                        <p className="text-base text-slate-500 leading-[170%]"> { item.body } </p>
+                      </div>
+                    )) }
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </GridContainer>
     </motion.div>
