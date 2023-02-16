@@ -22,7 +22,7 @@ input{
 
 /* Button */
 button{
-    @apply active:scale-95 transition duration-200;
+    @apply focus:outline-0 active:scale-95 transition duration-200;
 }
 
 .btn-size-sm{
@@ -46,7 +46,7 @@ button{
 
 /* Button sidebar */
 .sidebar-button-hover-background{
-    @apply absolute inset-0 bg-slate-100;
+    @apply absolute left-6 right-6 h-[40px] rounded-base bg-slate-100;
 }
 .button-sidebar-active > .sidebar-button-hover-background{
     @apply !bg-transparent;
