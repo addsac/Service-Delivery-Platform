@@ -88,6 +88,23 @@ const store = {
                         name: 'Nome del file',
                         url: 'https://leonardocitton.com'
                     },
+                    {
+                        type: 'folder',
+                        name: 'Nome della cartella',
+                        url: '',
+                        assets: [
+                            {
+                                type: 'file',
+                                name: 'Nome del file',
+                                url: 'https://leonardocitton.com'
+                            },
+                            {
+                                type: 'file',
+                                name: 'Nome del file',
+                                url: 'https://leonardocitton.com'
+                            },
+                        ]
+                    }
                 ]
             },
             {
@@ -105,15 +122,28 @@ const store = {
         ],
         appointments: [
             {
-                title: '',
-                data: '',
-                hour: '',
-                duration: '',
-                place: '',
+                title: 'Titolo dell’appuntamento da eseguire su Google Calendar',
+                date: '2023/03/01',
+                time: '10:00 - 12:00',
+                duration: 'Mezzora / Un’ora',
+                place: 'Google meet',
                 links: [
                     {
-                        title: '',
-                        url: ''
+                        title: 'Google meet',
+                        url: 'https://google.com'
+                    }
+                ],
+            },
+            {
+                title: 'Titolo dell’appuntamento da eseguire su Google Calendar',
+                date: '2023/01/14',
+                time: '10:00 - 12:00',
+                duration: 'Mezzora / Un’ora',
+                place: 'Google meet',
+                links: [
+                    {
+                        title: 'Google meet',
+                        url: 'https://google.com'
                     }
                 ],
             }

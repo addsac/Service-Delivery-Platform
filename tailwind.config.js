@@ -17,11 +17,11 @@ module.exports = {
     fontSize: {
       'sm': ['12px', {
         lineHeight: '120%',
-        letterSpacing: '-0.3px',
+        letterSpacing: '-0.1px',
       }],
       'base': ['15px', {
         lineHeight: '120%',
-        letterSpacing: '-0.3px',
+        letterSpacing: '-0.1px',
       }],
       'md': ['17px', {
         lineHeight: '120%',

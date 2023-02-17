@@ -1,7 +1,15 @@
-import { motion } from 'framer-motion'
 import GridContainer from '../layout/GridContainer'
+import AppointmentsCard from '../AppointmentsCard'
+import { useEffect } from 'react'
+import { motion } from 'framer-motion'
+import store from '@/store/store'
+import { isFuture, isPast } from 'date-fns'
 
 export default function Appointments({ transition }) {
+
+  const futureAppoinments = store.data.appointments.filter( item => isFuture(new Date(item.date)) )
+  const pastAppoinments = store.data.appointments.filter( item => isPast(new Date(item.date)) )
+
   return (
     <motion.div 
       initial={{ opacity: 0, y: '14px' }}
@@ -19,6 +27,17 @@ export default function Appointments({ transition }) {
               Qui sono elencati i prossimi appuntamenti fissati.
             </p>
           </div>
+
+          <div className='flex flex-col gap-y-6'>
+            <p className='text-md font-medium text-slate-900'> Prossimi appuntamenti </p>
+            {futureAppoinments.map((item) => <AppointmentsCard item={item} />)}
+          </div>
+
+          <div className='flex flex-col gap-y-6'>
+            <p className='text-md font-medium text-slate-900'> Appuntamenti passati </p>
+            {pastAppoinments.map((item) => <AppointmentsCard item={item} />)}
+          </div>
+
         </div>
       </GridContainer>
     </motion.div>

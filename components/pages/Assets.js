@@ -6,29 +6,34 @@ import IconDownload from '@/public/icon/icon-download.svg'
 import IconLink from '@/public/icon/icon-link.svg'
 import IconArrowTopRight from '@/public/icon/icon-arrow-top-right.svg'
 import IconFolderLg from '@/public/icon/icon-folder-lg.svg'
-import IconArrowRight from '@/public/icon/icon-arrow-right.svg'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import store from '@/store/store'
 import { useState } from 'react'
 
 export default function Assets({ transition }) {
   const assets = store.data.assets
 
+  const [currentAssets, setCurrentAssets] = useState(assets)
+
   const [folderSelected, setFolderSelected] = useState([])
 
   const resetFolderSelected = (folder, indexFolder) => {
-    console.log(folder) // set this as the active folder 
+    setCurrentAssets([...folder.assets])
     setFolderSelected([...folderSelected.slice(0, indexFolder + 1)])
   }
 
   const resetFolderSelectedAsAssets = () => {
     setFolderSelected([])
+    setCurrentAssets([...assets])
   }
 
   const handleClickAsset = (item) => {
     if(item.type == 'file') window.open(item.url, "_blank")
     if(item.type == 'link') window.open(item.url, "_blank")
-    if(item.type == 'folder') setFolderSelected([...folderSelected, item])
+    if(item.type == 'folder') {
+      setFolderSelected([...folderSelected, item])
+      setCurrentAssets([...item.assets])
+    }
   }
 
   return (
@@ -64,16 +69,27 @@ export default function Assets({ transition }) {
                 <>
                   {folderSelected.map((folder, index) => (
                     <>
-                    <IconChevronRight />
-                    { folderSelected.length == (index+1) ? (
-                      <p className='opacity-50'> 
-                        { folder.name } 
-                      </p>
-                    ) : (
-                      <button onClick={() => resetFolderSelected(folder, index)} className='text-md'>
-                        { folder.name } 
-                      </button> 
-                    )}
+                      <IconChevronRight />
+                      <AnimatePresence>
+                        { folderSelected.length == (index+1) ? (
+                          <motion.p 
+                            initial={{ y: '5px', opacity: 0 }}
+                            animate={{ y: 0, opacity: 0.5}}
+                            exit={{ y: '-5px', opacity: 0 }}
+                          > 
+                            { folder.name } 
+                          </motion.p>
+                        ) : (
+                          <motion.button 
+                          initial={{ opacity: 0.5 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0.5 }}
+                          onClick={() => resetFolderSelected(folder, index)} className='text-md'
+                          >
+                            { folder.name } 
+                          </motion.button> 
+                        )}
+                        </AnimatePresence>
                     </>
                   ))}
                 </>
@@ -81,12 +97,14 @@ export default function Assets({ transition }) {
             </div>
             <div className='w-full h-px bg-slate-900/10'></div>
             {/* File and Link row */}
-            <div className='grid grid-cols-6 gap-6'>
-              { assets.map((item) => (
+            <div 
+              className='grid grid-cols-6 gap-6'
+            >
+              { currentAssets.map((item) => (
                 <button onClick={() => handleClickAsset(item)} className='col-span-2 flex flex-col gap-y-3 hover:-translate-y-1 transition duration-200 ease-out'>
                   <div className='h-[120px] w-full bg-slate-900 rounded-md flex-center text-white/40'>
                     { item.type == 'file' && <IconFile /> }
-                    { item.type == 'link' && <IconLink /> }
+                    { item.type == 'link' && <span className='w-10 h-10 stroke-2'><IconLink /></span> }
                     { item.type == 'folder' && <IconFolderLg /> }
                   </div>
                   <div className='w-full flex items-center justify-between text-base text-slate-900'>
