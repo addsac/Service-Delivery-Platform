@@ -34,7 +34,7 @@ export default function TimePlanner({ transition }) {
               <div className='flex gap-x-10'>
                 {/* Square  */}
                 <div className='relative flex h-20 w-20'>
-                  { index == 0 && <span class="animate-ping absolute inline-flex h-full w-full rounded-md bg-slate-400 z-[-1]"></span> }
+                  { plan.active && <span class="animate-ping absolute inline-flex h-full w-full rounded-md bg-slate-400 z-[-1]"></span> }
                   <div className='h-20 w-20 flex-center rounded-md bg-white shadow-1'>
                     <IconLayer />
                   </div>

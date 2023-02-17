@@ -5,6 +5,7 @@ const store = {
             {
                 title: '1. Strategia',
                 description: 'Questa è la descrizione della fase di lavoro, questa è las descrizione della fase di lavoro, questa è las descrizione della fase di lavoro, questa è las descrizione della fase di lavoro, questa è las descrizione della fase di lavoro.',
+                active: true,
                 data: [
                     {
                         title: 'Obiettivo',
@@ -23,6 +24,7 @@ const store = {
             {
                 title: '2. Design',
                 description: 'Questa è la descrizione della fase di lavoro, questa è las descrizione della fase di lavoro, questa è las descrizione della fase di lavoro, questa è las descrizione della fase di lavoro, questa è las descrizione della fase di lavoro.',
+                active: false,
                 data: [
                     {
                         title: 'Obiettivo',
@@ -41,6 +43,7 @@ const store = {
             {
                 title: '3. Sviluppo',
                 description: 'Questa è la descrizione della fase di lavoro, questa è las descrizione della fase di lavoro, questa è las descrizione della fase di lavoro, questa è las descrizione della fase di lavoro, questa è las descrizione della fase di lavoro.',
+                active: false,
                 data: [
                     {
                         title: 'Obiettivo',
@@ -126,7 +129,7 @@ const store = {
                 date: '2023/03/01',
                 time: '10:00 - 12:00',
                 duration: 'Mezzora / Un’ora',
-                place: 'Google meet',
+                place: 'Online',
                 links: [
                     {
                         title: 'Google meet',
@@ -139,7 +142,7 @@ const store = {
                 date: '2023/01/14',
                 time: '10:00 - 12:00',
                 duration: 'Mezzora / Un’ora',
-                place: 'Google meet',
+                place: 'Online',
                 links: [
                     {
                         title: 'Google meet',
@@ -151,8 +154,8 @@ const store = {
         contacts: {
             phone: '+39 3478758148',
             email: 'info@pegasodigitalstudio.com',
-            whatsapp: 'https://whatsapp.com',
-            website: 'htpps://pegasodigitalstudio.com',
+            whatsapp: { text: '+39 3478758148', url: '393478758148'},
+            website: 'https://pegasodigitalstudio.com',
             social: [
                 {
                     title: 'instagram',

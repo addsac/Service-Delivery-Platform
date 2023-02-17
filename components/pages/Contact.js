@@ -32,6 +32,7 @@ export default function Contact({ transition }) {
                   text={contacts.phone}
                   type="secondary"
                   size="sm"
+                  handleClick={() => {window.open('tel:'+contacts.phone)}}
                 />
               </div>
               <div className='flex items-center justify-between py-4 border-b border-slate-900/5'>
@@ -40,14 +41,16 @@ export default function Contact({ transition }) {
                   text={contacts.email}
                   type="secondary"
                   size="sm"
+                  handleClick={() => {window.open('mailto:'+contacts.email)}}
                 />
               </div>
               <div className='flex items-center justify-between py-4 border-b border-slate-900/5'>
                 <p className='text-md text-slate-600'> Whatsapp </p>
                 <Button 
-                  text={contacts.whatsapp}
+                  text={contacts.whatsapp.text}
                   type="secondary"
                   size="sm"
+                  handleClick={() => {window.open('https://wa.me/'+contacts.whatsapp.url)}}
                 />
               </div>
               <div className='flex items-center justify-between py-4 border-b border-slate-900/5'>
@@ -56,6 +59,7 @@ export default function Contact({ transition }) {
                   text={contacts.website}
                   type="secondary"
                   size="sm"
+                  handleClick={() => {window.open(contacts.website)}}
                 />
               </div>
             </div>
