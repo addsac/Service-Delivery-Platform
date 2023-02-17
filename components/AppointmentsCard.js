@@ -2,6 +2,8 @@ import IconClock from '@/public/icon/icon-clock.svg'
 import IconPin from '@/public/icon/icon-pin.svg'
 import Button from './ui/Button'
 import IconLink from '@/public/icon/icon-link.svg'
+import { format } from 'date-fns'
+import { it } from 'date-fns/locale'
 
 export default function AppointmentsCard({ item }) {
   return (
@@ -15,7 +17,7 @@ export default function AppointmentsCard({ item }) {
                     <IconClock />
                 </span>
                 <div className="flex flex-col gap-y-3 text-base text-slate-900">
-                    <p> {item.date} </p>
+                    <p> {format(new Date(item.date), 'd MMMM yyyy', { locale: it})} </p>
                     <p> {item.time} </p>
                     <p> {item.duration} </p>
                 </div>
