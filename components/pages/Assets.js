@@ -81,10 +81,10 @@ export default function Assets({ transition }) {
                           </motion.p>
                         ) : (
                           <motion.button 
-                          initial={{ opacity: 0.5 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0.5 }}
-                          onClick={() => resetFolderSelected(folder, index)} className='text-md'
+                            initial={{ opacity: 0.5 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0.5 }}
+                            onClick={() => resetFolderSelected(folder, index)} className='text-md'
                           >
                             { folder.name } 
                           </motion.button> 
@@ -100,7 +100,7 @@ export default function Assets({ transition }) {
             <div 
               className='grid grid-cols-6 gap-6'
             >
-              { currentAssets.map((item) => (
+              {currentAssets.map((item) => (
                 <button onClick={() => handleClickAsset(item)} className='col-span-2 flex flex-col gap-y-3 hover:-translate-y-1 transition duration-200 ease-out'>
                   <div className='h-[120px] w-full bg-slate-900 rounded-md flex-center text-white/40'>
                     { item.type == 'file' && <IconFile /> }

@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { menuState } from "@/store/atom/sidebarAtom"
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 import { motion, AnimateSharedLayout, AnimatePresence, LayoutGroup } from "framer-motion"
@@ -14,7 +14,7 @@ export default function Sidebar() {
 
   const [buttonArray] = useState(['Time Planner', 'Assets', 'Appuntamenti', 'Contatti'])
   const [hovered, setHovered] = useState(buttonArray[0])
-
+  
   return (
     <div className='w-[300px] fixed top-0 bottom-0 bg-white shadow-sidebar flex flex-col justify-between pt-10 pb-6 z-10'>
         {/* top part */}

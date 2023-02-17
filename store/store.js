@@ -149,14 +149,22 @@ const store = {
             }
         ],
         contacts: {
-            phone: '',
-            email: '',
-            website: '',
-            slack: '',
+            phone: '+39 3478758148',
+            email: 'info@pegasodigitalstudio.com',
+            whatsapp: 'https://whatsapp.com',
+            website: 'htpps://pegasodigitalstudio.com',
             social: [
                 {
-                    title: '',
-                    url: ''
+                    title: 'instagram',
+                    url: 'https://google.com'
+                },
+                {
+                    title: 'twitter',
+                    url: 'https://google.com'
+                },
+                {
+                    title: 'linkedin',
+                    url: 'https://google.com'
                 }
             ]
         },
