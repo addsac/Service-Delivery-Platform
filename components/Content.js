@@ -9,7 +9,7 @@ import { useRecoilValue } from 'recoil'
 export default function Content() {
     const menu = useRecoilValue(menuState)
   return (
-    <div className='min-h-screen w-full pt-[105px]'>
+    <div className='min-h-screen w-full pt-[88px] lg:pt-[105px]'>
       <AnimatePresence mode='wait' initial={false}>
         { menu == 1 && <TimePlanner key="content-1" transition={transition} /> }
         { menu == 2 && <Assets key="content-2" transition={transition} /> }

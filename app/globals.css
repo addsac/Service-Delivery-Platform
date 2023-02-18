@@ -22,7 +22,7 @@ input{
 
 /* Button */
 button{
-    @apply focus:outline-0;
+    @apply focus:outline-0 whitespace-nowrap;
 }
 
 .btn-size-sm{
@@ -30,6 +30,9 @@ button{
 }
 .btn-size-lg{
     @apply rounded-base text-md px-[20px] py-[10px] flex-center gap-x-[8px] active:scale-95 transition duration-200;
+}
+.btn-size-icon{
+    @apply rounded-base p-2 flex-center active:scale-95 transition duration-200;
 }
 .btn-primary{
     @apply bg-slate-900 text-white hover:bg-slate-800 active:bg-slate-700 disabled:opacity-40;

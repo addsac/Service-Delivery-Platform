@@ -19,7 +19,7 @@ export default function NotificationContainer({ clickOutsideFunction }) {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: '-8px' }}
         ref={ref}
-        className='mt-3 absolute bottom-100 right-0 bg-white shadow-1 w-[400px] min-h-[500px] max-h-[260px] overflow-y-scroll rounded-md flex flex-col'
+        className='mt-3 absolute bottom-100 right-0 bg-white shadow-1 w-[280px] lg:w-[400px] h-[350px] lg:h-[500px] overflow-y-scroll rounded-md flex flex-col'
     >
         <div className="px-5 text-base font-medium text-slate-900 flex items-center gap-x-5">
             <button onClick={() => setActiveMenu(1)} className={`relative ${activeMenu == 1 ? 'text-slate-900' : 'text-slate-500 hover:text-slate-900'} text-base pt-5 pb-[18px] px-1`}>

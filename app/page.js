@@ -3,6 +3,7 @@
 import PasswordModal from '@/components/PasswordModal'
 import Sidebar from '@/components/Sidebar'
 import Topbar from '@/components/Topbar'
+import TopbarMobile from '@/components/TopbarMobile'
 import Content from '@/components/Content'
 import { securityState } from '@/store/atom/securityAtom'
 import store from '@/store/store' 
@@ -15,12 +16,13 @@ export default function Home() {
   return (
     <>
       { security && <Sidebar /> }
-      <main className='pl-[300px]'>
+      <main className='lg:pl-[300px]'>
         <AnimatePresence>
           { !security && 
             <PasswordModal password={store.password} />
           }
         </AnimatePresence>
+        { security && <TopbarMobile />}
         { security && <Topbar /> }
         { security && <Content /> }
       </main> 

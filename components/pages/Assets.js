@@ -102,13 +102,16 @@ export default function Assets({ transition }) {
             >
               {currentAssets.map((item) => (
                 <button onClick={() => handleClickAsset(item)} className='col-span-2 flex flex-col gap-y-3 hover:-translate-y-1 transition duration-200 ease-out'>
-                  <div className='h-[120px] w-full bg-slate-900 rounded-md flex-center text-white/40'>
+                  <div className='h-[120px] w-full bg-slate-900 rounded-md flex-center text-slate-500'>
                     { item.type == 'file' && <IconFile /> }
                     { item.type == 'link' && <span className='w-10 h-10 stroke-2'><IconLink /></span> }
                     { item.type == 'folder' && <IconFolderLg /> }
                   </div>
-                  <div className='w-full flex items-center justify-between text-base text-slate-900'>
-                    <p> {item.name} </p>
+                  <div className='w-full flex items-start justify-between text-base text-slate-900'>
+                    <div className='flex flex-col items-start gap-y-[6px] text-left'>
+                      <p> {item.name} </p>
+                      { item.type == 'folder' && ( <p className='text-sm text-slate-500'> {item.assets.length} File </p> )}
+                    </div>
                     { item.type == 'file' && (
                       <div className='w-5 h-5'>
                         <IconDownload />
