@@ -21,7 +21,7 @@ export default function Topbar() {
                   handleClick={() => setBoolNotitication(!boolNotification)}
               />
               <AnimatePresence>
-                {boolNotification && <NotificationContainer /> }
+                {boolNotification && <NotificationContainer clickOutsideFunction={() => setBoolNotitication(false)} /> }
               </AnimatePresence>
             </div>
         </GridContainer>

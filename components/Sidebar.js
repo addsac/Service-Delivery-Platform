@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react"
-import { menuState } from "@/store/atom/sidebarAtom"
-import { useRecoilValue, useSetRecoilState } from 'recoil'
-import { motion, AnimateSharedLayout, AnimatePresence, LayoutGroup } from "framer-motion"
 import KeyTag from './ui/KeyTag'
 import IconCartel from '../public/icon/icon-cartel.svg'
 import IconFolder from '../public/icon/icon-folder.svg'
 import IconCalendar from '../public/icon/icon-calendar.svg'
 import IconPhone from '../public/icon/icon-phone.svg'
+import { useState } from 'react'
+import { menuState } from '@/store/atom/sidebarAtom'
+import { useRecoilValue, useSetRecoilState } from 'recoil'
+import { motion, AnimatePresence } from 'framer-motion'
 
 export default function Sidebar() {
   const setMenu = useSetRecoilState(menuState)
@@ -107,6 +107,6 @@ const KeyEventListener = ({ setMenu, setHovered, buttonArray }) => {
 
 const sidebarButtonsTransition = {
   ease: 'circOut',
-  duration: 0.4,
+  duration: 0.3,
   delay: 0.05
 }

@@ -174,17 +174,17 @@ const store = {
         notifications: [
             {
                 title: 'Titolo della notitifica per segnalare che è successo qualcosa.',
-                date: '10/04/2023'
+                date: '2023/02/03'
             },
         ],
         messages: [
             {
                 text: 'Questo messaggio è per dirti che adesso è disponibile qualcosa',
-                date: '10/03/2023'
+                date: '2023/02/10'
             },
             {
                 text: 'Questo messaggio è per dirti che adesso è disponibile qualcosa',
-                date: '8/03/2023'
+                date: '2023/02/23'
             }
         ]
     }

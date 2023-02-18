@@ -1,6 +1,5 @@
 import GridContainer from '../layout/GridContainer'
 import AppointmentsCard from '../AppointmentsCard'
-import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import store from '@/store/store'
 import { isFuture, isPast } from 'date-fns'
