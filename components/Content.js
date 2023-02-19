@@ -10,7 +10,7 @@ export default function Content() {
     const menu = useRecoilValue(menuState)
   return (
     <div className='min-h-screen w-full pt-[88px] lg:pt-[105px]'>
-      <AnimatePresence mode='wait' initial={false}>
+      <AnimatePresence mode='wait'>
         { menu == 1 && <TimePlanner key="content-1" transition={transition} /> }
         { menu == 2 && <Assets key="content-2" transition={transition} /> }
         { menu == 3 && <Appointments key="content-3" transition={transition} /> }
@@ -21,6 +21,5 @@ export default function Content() {
 }
 
 const transition = {
-  x: { duration: 0.1 },
-  default: { ease: "circOut" }
+  default: { duration: 0.26, ease: "circOut" }
 }
