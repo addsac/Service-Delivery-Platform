@@ -102,18 +102,19 @@ export default function Assets({ transition }) {
             <div 
               className='grid grid-cols-6 gap-6'
             >
-              <AnimatePresence mode='popLayout'>
+              <AnimatePresence mode='wait'>
                 {currentAssets.map((item, index) => (
                   <motion.button 
-                    initial={{ y: '5px', opacity: 0 }}
+                    initial={{ y: '8px', opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: '5px', opacity: 0 }}
-                    whileHover={{ y: -4 }}
+                    exit={{ y: '8px', opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                    whileHover={{ y: -5 }}
                     key={'file-' + index + '-' + item.name}
                     onClick={() => handleClickAsset(item)} 
                     className='col-span-2 flex flex-col gap-y-3'
                   >
-                    <div className='h-[120px] w-full bg-slate-900 rounded-md flex-center text-slate-500'>
+                    <div className='h-[140px] w-full bg-slate-900 rounded-md flex-center text-slate-500'>
                       { item.type == 'file' && <IconFile /> }
                       { item.type == 'link' && <span className='w-10 h-10 stroke-2'><IconLink /></span> }
                       { item.type == 'folder' && <IconFolderLg /> }

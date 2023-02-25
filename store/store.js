@@ -63,12 +63,12 @@ const store = {
         assets: [
             {
                 type: 'file',
-                name: 'Nome del file',
+                name: 'Nome del file 1',
                 url: 'https://leonardocitton.com'
             },
             {
                 type: 'file',
-                name: 'Nome del file',
+                name: 'Nome del file 2',
                 url: 'https://leonardocitton.com'
             },
             {
@@ -83,12 +83,12 @@ const store = {
                 assets: [
                     {
                         type: 'file',
-                        name: 'Nome del file',
+                        name: 'Nome del file 3',
                         url: 'https://leonardocitton.com'
                     },
                     {
                         type: 'file',
-                        name: 'Nome del file',
+                        name: 'Nome del file 4',
                         url: 'https://leonardocitton.com'
                     },
                     {
@@ -98,12 +98,12 @@ const store = {
                         assets: [
                             {
                                 type: 'file',
-                                name: 'Nome del file',
+                                name: 'Nome del file 5',
                                 url: 'https://leonardocitton.com'
                             },
                             {
                                 type: 'file',
-                                name: 'Nome del file',
+                                name: 'Nome del file 6',
                                 url: 'https://leonardocitton.com'
                             },
                         ]
