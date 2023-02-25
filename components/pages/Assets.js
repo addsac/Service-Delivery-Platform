@@ -76,6 +76,7 @@ export default function Assets({ transition }) {
                             initial={{ y: '5px', opacity: 0 }}
                             animate={{ y: 0, opacity: 0.5}}
                             exit={{ y: '-5px', opacity: 0 }}
+                            key={'folder-list-' + index + '-' + folder.name}
                           > 
                             { folder.name } 
                           </motion.p>
@@ -84,6 +85,7 @@ export default function Assets({ transition }) {
                             initial={{ opacity: 0.5 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0.5 }}
+                            key={'folder-list-' + index + '-' + folder.name}
                             onClick={() => resetFolderSelected(folder, index)} className='text-md'
                           >
                             { folder.name } 
@@ -100,31 +102,41 @@ export default function Assets({ transition }) {
             <div 
               className='grid grid-cols-6 gap-6'
             >
-              {currentAssets.map((item) => (
-                <button onClick={() => handleClickAsset(item)} className='col-span-2 flex flex-col gap-y-3 hover:-translate-y-1 transition duration-200 ease-out'>
-                  <div className='h-[120px] w-full bg-slate-900 rounded-md flex-center text-slate-500'>
-                    { item.type == 'file' && <IconFile /> }
-                    { item.type == 'link' && <span className='w-10 h-10 stroke-2'><IconLink /></span> }
-                    { item.type == 'folder' && <IconFolderLg /> }
-                  </div>
-                  <div className='w-full flex items-start justify-between text-base text-slate-900'>
-                    <div className='flex flex-col items-start gap-y-[6px] text-left'>
-                      <p> {item.name} </p>
-                      { item.type == 'folder' && ( <p className='text-sm text-slate-500'> {item.assets.length} File </p> )}
+              <AnimatePresence mode='popLayout'>
+                {currentAssets.map((item, index) => (
+                  <motion.button 
+                    initial={{ y: '5px', opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ y: '5px', opacity: 0 }}
+                    whileHover={{ y: -4 }}
+                    key={'file-' + index + '-' + item.name}
+                    onClick={() => handleClickAsset(item)} 
+                    className='col-span-2 flex flex-col gap-y-3'
+                  >
+                    <div className='h-[120px] w-full bg-slate-900 rounded-md flex-center text-slate-500'>
+                      { item.type == 'file' && <IconFile /> }
+                      { item.type == 'link' && <span className='w-10 h-10 stroke-2'><IconLink /></span> }
+                      { item.type == 'folder' && <IconFolderLg /> }
                     </div>
-                    { item.type == 'file' && (
-                      <div className='w-5 h-5'>
-                        <IconDownload />
+                    <div className='w-full flex items-start justify-between text-base text-slate-900'>
+                      <div className='flex flex-col items-start gap-y-[6px] text-left'>
+                        <p> {item.name} </p>
+                        { item.type == 'folder' && ( <p className='text-sm text-slate-500'> {item.assets.length} File </p> )}
                       </div>
-                    )}
-                    { item.type == 'link' && (
-                      <div className='w-5 h-5'>
-                        <IconArrowTopRight />
-                      </div>
-                    )}
-                  </div>
-                </button>
-              ))}
+                      { item.type == 'file' && (
+                        <div className='w-5 h-5'>
+                          <IconDownload />
+                        </div>
+                      )}
+                      { item.type == 'link' && (
+                        <div className='w-5 h-5'>
+                          <IconArrowTopRight />
+                        </div>
+                      )}
+                    </div>
+                  </motion.button>
+                ))}
+              </AnimatePresence>
             </div>
           </div>
 
